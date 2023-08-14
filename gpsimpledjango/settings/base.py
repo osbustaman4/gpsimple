@@ -1,5 +1,7 @@
-from pathlib import Path
+from datetime import timedelta
 from decouple import config
+
+from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -19,11 +21,15 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-
+    'rest_framework',
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
+    'drf_yasg',
 ]
 
 LOCAL_APPS = [
-    'applications.bases'
+    'applications.bases',
+    'applications.gpsimpleapi'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
@@ -95,5 +101,14 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+"""SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=360000),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'AUTH_HEADER_TYPES': ('Bearer',)
+}"""
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
