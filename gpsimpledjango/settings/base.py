@@ -110,5 +110,11 @@ USE_TZ = True
     'AUTH_HEADER_TYPES': ('Bearer',)
 }"""
 
+SWAGGER_SETTINGS = {
+    "DEFAULT_AUTO_SCHEMA_CLASS": "drf_yasg.inspectors.SwaggerAutoSchema",
+    "DEFAULT_INFO": "",
+}
+
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

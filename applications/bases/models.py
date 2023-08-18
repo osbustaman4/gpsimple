@@ -1,5 +1,7 @@
 from django.db import models
 
+from applications.bases.managers import AppComandosMotorManager, GsObjectsManager, GsUserZonesManager, GsUsersManager
+
 
 class T4562419803(models.Model):
     f1 = models.CharField(max_length=255, blank=True, null=True)
@@ -106,6 +108,8 @@ class AppComandosMotor(models.Model):
     comando = models.CharField(max_length=50)
     detalle = models.CharField(max_length=100)
     codigo = models.CharField(max_length=100)
+
+    objects = AppComandosMotorManager()
 
     class Meta:
         managed = False
@@ -1307,6 +1311,8 @@ class GsObjects(models.Model):
     max_speed = models.IntegerField(blank=True, null=True)
     dt_robo = models.DateTimeField(blank=True, null=True)
 
+    objects = GsObjectsManager()
+
     class Meta:
         managed = False
         db_table = 'gs_objects'
@@ -1764,6 +1770,8 @@ class GsUserZones(models.Model):
     menor_igual_a = models.IntegerField(blank=True, null=True)
     mayor_igual_a = models.IntegerField(blank=True, null=True)
 
+    objects = GsUserZonesManager()
+
     class Meta:
         managed = False
         db_table = 'gs_user_zones'
@@ -1847,6 +1855,8 @@ class GsUsers(models.Model):
     privilegios = models.CharField(max_length=255, db_collation='utf8_bin', blank=True, null=True)
     cartecf = models.IntegerField(db_column='cartecF', blank=True, null=True)  # Field name made lowercase.
     pass_verificada = models.IntegerField(blank=True, null=True)
+
+    objects = GsUsersManager()
 
     class Meta:
         managed = False
