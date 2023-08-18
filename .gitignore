@@ -2,7 +2,7 @@
 !**/migrations/__init__.py
 
 db.sqlite3
-.vscode/launch.json
+**/.vscode/*
 __pycache__
 env
 *.pyc
